@@ -5,7 +5,7 @@ Panduan instal : Untuk menjalankan file ini begitu sederhana, cukup jalankan fil
 
 # Used 
 
-Hero Image : Shirasu Azusa on Pinterest
-https://github.com/michalsnik/aos
+HeroImage: Shirasu Azusa on Pinterest
+Library: [AOS](https://github.com/michalsnik/aos)
 
 
