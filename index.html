@@ -5,26 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      };
+    </script>
   </head>
-  <body>
+  <body class="dark:bg-slate-900">
     <!-- Header Start -->
     <header class="container relative">
       <div class="fixed border-b border-slate-200 shadow-sm w-full backdrop-blur-sm top-0 left-0 flex items-center z-10">
         <div class="flex items-center justify-between w-full lg:px-32 px-8">
           <div class="text-2xl font-bold font-sans text-emerald-600 hover:text-slate-700 block py-4">
-            <a href="#home" class="">Radon<span class="text-slate-700">is</span>me.</a>
+            <a href="#home" class="">Radon<span class="text-slate-700 dark:text-slate-100">is</span>me.</a>
           </div>
-          <div class="flex items-center relative lg:hidden">
+          <div class="flex items-center lg:hidden">
             <button id="ham" type="button" class="block absolute right-4 lg:hidden px-4 group">
-              <span class="w-[30px] h-[2px] my-2 block bg-slate-900 group-focus:bg-emerald-500 group-focus:scale-x-90"></span>
-              <span class="w-[30px] h-[2px] my-2 block bg-slate-900 group-focus:bg-emerald-500 group-focus:scale-x-90"></span>
-              <span class="w-[30px] h-[2px] my-2 block bg-slate-900 group-focus:bg-emerald-500 group-focus:scale-x-90"></span>
+              <span class="w-[30px] h-[2px] my-2 block bg-slate-900 group-focus:bg-emerald-500 group-focus:scale-x-90 dark:bg-slate-50"></span>
+              <span class="w-[30px] h-[2px] my-2 block bg-slate-900 group-focus:bg-emerald-500 group-focus:scale-x-90 dark:bg-slate-50"></span>
+              <span class="w-[30px] h-[2px] my-2 block bg-slate-900 group-focus:bg-emerald-500 group-focus:scale-x-90 dark:bg-slate-50"></span>
 
-              <div class="w-60 h-70 border-2 backdrop-blur-sm bg-white/40 absolute right-12 top-5 hidden group-focus:block focus my-auto">
-                <div class="text-md text-center text-slate-700 mx-auto my-auto font-bold py-6 border-b border-slate-300 hover:text-emerald-600"><a href="#home">Home</a></div>
-                <div class="text-md text-center text-slate-700 mx-auto my-auto font-bold py-6 border-b border-slate-300 hover:text-emerald-600"><a href="#about">About</a></div>
-                <div class="text-md text-center text-slate-700 mx-auto my-auto font-bold py-6 border-b border-slate-300 hover:text-emerald-600"><a href="#project">Project</a></div>
-                <div class="text-md text-center text-slate-700 mx-auto my-auto font-bold py-6 hover:text-emerald-600"><a href="#contact">Contact Me</a></div>
+              <div class="w-60 h-70 border-0 bg-white dark:bg-slate-900 shadow-md shadow-slate-300 absolute right-12 top-5 hidden group-focus:block my-auto hover:block">
+                <div class="text-md text-center text-slate-700 dark:text-slate-100 mx-auto my-auto font-bold py-4 border-slate-300 hover:text-emerald-600"><a href="#home">Home</a></div>
+                <div class="text-md text-center text-slate-700 dark:text-slate-100 mx-auto my-auto font-bold py-4 border-slate-300 hover:text-emerald-600"><a href="#about">About</a></div>
+                <div class="text-md text-center text-slate-700 dark:text-slate-100 mx-auto my-auto font-bold py-4 border-slate-300 hover:text-emerald-600"><a href="#project">Project</a></div>
+                <div class="text-md text-center text-slate-700 dark:text-slate-100 mx-auto my-auto font-bold py-4 hover:text-emerald-600"><a href="#contact">Contact Me</a></div>
+                <div class="text-md text-center text-slate-700 dark:text-slate-100 mx-auto my-auto font-bold py-4 hover:text-emerald-600">
+                  <!-- TOGGLE -->
+                  <div class="flex justify-center">
+                    <span class="text-sm text-slate-500 mr-2">Light</span>
+                    <input type="checkbox" name="" id="toggle" class="hidden" />
+                    <label for="toggle">
+                      <div class="w-9 h-5 bg-slate-400 flex items-center rounded-full p-1 cursor-pointer">
+                        <div class="toggle-circle w-4 h-4 bg-white rounded-full"></div>
+                      </div>
+                    </label>
+                    <span class="text-sm text-slate-500 ml-2">Dark</span>
+                  </div>
+                </div>
               </div>
             </button>
           </div>
@@ -32,6 +50,14 @@
             <span class="text-xl font-bold text-emerald-600 text-inter font-lg mr-10 hover:text-slate-500"><a href="#about">About Me</a></span>
             <span class="text-xl font-bold text-emerald-600 text-inter font-lg mr-10 hover:text-slate-500"><a href="#about">Project</a></span>
             <span class="text-xl font-bold text-emerald-600 text-inter font-lg mr-10 hover:text-slate-500"><a href="#about">Contact</a></span>
+            <div class="text-xl font-bold text-emerald-600 text-inter font-lg mr-10 flex items-center absolute right-6 top-6 justify-self-end hover:text-slate-500">
+              <input type="checkbox" name="" id="toggle" class="hidden" />
+              <label for="toggle">
+                <div class="w-9 h-5 bg-slate-400 flex items-center rounded-full p-1 cursor-pointer">
+                  <div class="toggle-circle w-4 h-4 bg-white rounded-full"></div>
+                </div>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -43,15 +69,19 @@
       <div class="w-full flex lg:justify-between flex-wrap lg:flex-nowrap px-8 lg:px-32">
         <!-- Halo -->
         <div class="w-full lg:w-[40%] self-center rounded">
-          <h1 class="text-xl font-bold text-emerald-600">Halo Semua 👋, Saya <span class="block text-xl font-bold text-slate-800 mt-2">Tareq Habbyullah</span></h1>
-          <h2 class="font-medium text-slate-700 mb-2">Front-end <span class="text-emerald-600">Developer</span> dan Graphic <span class="text-emerald-600">Designer</span></h2>
-          <p class="font-light text-slate-600 leading-relaxed">Saya seorang front-end developer yang tertarik dalam berbagai fitur teknologi yang memudahkan user dalam menggunakan sebuah web aplikasi.</p>
+          <h1 class="text-xl font-bold text-emerald-600">Halo Semua 👋, Saya <span class="block text-xl font-bold text-slate-800 mt-2 dark:text-slate-100">Tareq Habbyullah</span></h1>
+          <h2 class="font-medium text-slate-700 mb-2 dark:text-slate-200">Front-end <span class="text-emerald-600">Developer</span> dan Graphic <span class="text-emerald-600">Designer</span></h2>
+          <p class="font-light text-slate-600 leading-relaxed dark:text-slate-200">Saya seorang front-end developer yang tertarik dalam berbagai fitur teknologi yang memudahkan user dalam menggunakan sebuah web aplikasi.</p>
         </div>
 
         <!-- Hero -->
         <div class="w-1/2 lg:w-1/3 mx-auto pt-16 lg:pt-0 lg:mx-0">
-          <img src="/img/Azusa-4-tra.png" class="rounded-full backdrop-blur-sm w-full border-2 shadow border-slate-600" alt="" />
-          <p class="mt-6 font-thin text-xl text-center border-t-[1px] border-emerald-600/40 pt-4">Vanitas vanitatum. Et omnia vanitas - <span class="font-normal text-emerald-600">Shirasu Azusa</span></p>
+          <div class="rounded-full border-2 border-slate-600 overflow-hidden">
+            <img src="/img/Azusa-4-tra.png" class="rounded-full w-full dark:bg-white hover:scale-110 transition" alt="" />
+          </div>
+          <p class="mt-6 font-thin text-xl text-center border-t-[1px] border-emerald-600/40 dark:border-white pt-4 dark:text-slate-200">
+            Vanitas vanitatum. Et omnia vanitas - <span class="font-normal text-emerald-600">Shirasu Azusa</span>
+          </p>
           <!-- <span class="absolute -z-10 w-[92%]">
                 <svg viewBox="0 0 200 200" class="" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -69,19 +99,19 @@
     <!-- About Section Start -->
     <div data-aos="fade-up">
       <section id="about" class="pt-32 pb-32">
-        <div class="mx-auto p-12 bg-slate-900 w-full">
+        <div class="mx-auto p-12 bg-slate-900 dark:bg-emerald-600 w-full">
           <!-- flex container -->
           <div class="flex">
             <!-- flex items -->
             <div class="mx-2 me-10 lg:me-20 w-full">
-              <h1 class="font-bold uppercase text-lg text-emerald-600">Tentang Saya</h1>
+              <h1 class="font-bold uppercase text-lg text-emerald-600 dark:text-slate-900">Tentang Saya</h1>
               <h2 class="font-bold text-slate-200 mt-2 text-xl lg:text-3xl">Ayo Belajar Tailwindcss</h2>
-              <p class="text-slate-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque dignissimos tempore quas possimus iste ab, error distinctio earum harum aliquid.</p>
+              <p class="text-slate-400 dark:text-slate-100">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque dignissimos tempore quas possimus iste ab, error distinctio earum harum aliquid.</p>
             </div>
             <div class="me-0 lg:me-2 w-3/4">
-              <h1 class="font-bold uppercase text-lg text-emerald-600">Hubungi Saya</h1>
+              <h1 class="font-bold uppercase text-lg text-emerald-600 dark:text-slate-900">Hubungi Saya</h1>
               <h2 class="font-bold text-slate-200 mt-2 text-xl lg:text-3xl">Mari Berteman</h2>
-              <p class="text-slate-400">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, saepe!</p>
+              <p class="text-slate-400 dark:text-slate-100">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, saepe!</p>
 
               <!-- Ikon Sosial Media -->
               <div class="flex items-center py-2 justify-start ms-0 mt-2 scale-90 lg:scale-100">
@@ -136,6 +166,14 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+    </script>
+    <script>
+      const checkbox = document.querySelector('#toggle');
+      const html = document.querySelector('html');
+
+      checkbox.addEventListener('click', function () {
+        checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+      });
     </script>
   </body>
 </html>
